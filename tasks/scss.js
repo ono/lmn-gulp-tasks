@@ -39,7 +39,7 @@ module.exports = function (gulp, plugins, options) {
       }))
       .on('error', options.onError) // For some reason gulp-plumber doesn't like -compass
       .pipe(plugins.autoprefixer())
-      .pipe(options.minify ? plugins.minifyCss() : through.obj())
+      .pipe(options.minify ? plugins.cssnano() : through.obj())
       .pipe(options.rev ? plugins.fingerprint('rev-manifest.json', {
         prefix: '/',
         mode: 'replace'
